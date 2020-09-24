@@ -2,6 +2,7 @@
 		"name": "pname",
 		"version": "1.0.0",
 		"description": "Cloudflare worker TypeScript template",
+		"keywords": ["cloudflare-workers", "typescript"],
 		"author": "PayFunc",
 		"license": "MIT",
 		"repository": "https://github.com/payfunc/worker-typescript-template",
