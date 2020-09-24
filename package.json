@@ -1,30 +1,58 @@
 {
-  "name": "pname",
-  "version": "1.0.0",
-  "description": "Cloudflare worker TypeScript template",
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack",
-    "dev": "NODE_ENV=development npm run build",
-    "format": "prettier --write '**/*.{ts,js,css,json,md}'",
-    "test:clean": "rimraf ./transpiled/src ./transpiled/test",
-    "test": "npm run test:clean && npm run transpile && mocha --require source-map-support/register --recursive transpiled/test",
-    "transpile": "tsc --project ./test"
-  },
-  "author": "author",
-  "license": "MIT OR Apache-2.0",
-  "devDependencies": {
-    "@cloudflare/workers-types": "^2.0.0",
-    "@types/chai": "^4.2.11",
-    "@types/mocha": "^7.0.2",
-    "chai": "^4.2.0",
-    "mocha": "^8.0.1",
-    "prettier": "^2.0.5",
-    "rimraf": "^3.0.2",
-    "service-worker-mock": "^2.0.5",
-    "ts-loader": "^7.0.5",
-    "typescript": "^3.9.5",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
-  }
+		"name": "pname",
+		"version": "1.0.0",
+		"description": "Cloudflare worker TypeScript template",
+		"author": "PayFunc",
+		"license": "MIT",
+		"repository": "https://github.com/payfunc/worker-typescript-template",
+		"bugs": {
+				"url": "https://github.com/payfunc/worker-typescript-template/issues"
+		},
+		"homepage": "https://github.com/payfunc/worker-typescript-template",
+		"private": false,
+		"main": "dist/index.js",
+		"typings": "dist/index.d.ts",
+		"git": {
+				"tagName": "v${version}"
+		},
+		"github": {
+				"release": true
+		},
+		"jest": {
+				"testEnvironment": "node",
+				"testRegex": "((\\.|/)(test|spec))(\\.|\\/.+)jsx?$",
+				"testPathIgnorePatterns": [
+						"node_modules/"
+				]
+		},
+		"scripts": {
+				"dev": "watch 'npm run build' .",
+				"lint": "eslint '**/*.{js,ts,tsx,css,json,md}'",
+				"fix": "eslint '**/*.{js,ts,tsx,css,json,md}' --fix",
+				"build": "webpack .",
+				"test": "npm run transpile && jest",
+				"transpile": "tsc --project ./tsconfig.test.json",
+				"prepare": "npm run build",
+				"clean": "rm -rf dist node_modules coverage",
+				"serve": "wrangler dev"
+		},
+		"devDependencies": {
+				"@cloudflare/workers-types": "^2.0.0",
+				"@cloudflare/wrangler": "^1.11.0",
+				"@types/jest": "^26.0.14",
+				"@types/service-worker-mock": "^2.0.1",
+				"@typescript-eslint/eslint-plugin": "4.2.0",
+				"@typescript-eslint/parser": "4.2.0",
+				"eslint": "7.9.0",
+				"eslint-plugin-prettierx": "github:nilssonemma/eslint-plugin-prettierx#master",
+				"jest": "^26.4.2",
+				"prettierx": "github:simonmika/prettierx#newline-before-clause",
+				"service-worker-mock": "^2.0.1",
+				"ts-jest": "^26.4.0",
+				"ts-loader": "^8.0.4",
+				"typescript": "^4.0.3",
+				"webpack": "^4.44.2",
+				"webpack-cli": "^3.3.12"
+		},
+		"dependencies": {}
 }
