@@ -2,7 +2,10 @@
 		"name": "pname",
 		"version": "1.0.0",
 		"description": "Cloudflare worker TypeScript template",
-		"keywords": ["cloudflare-workers", "typescript"],
+		"keywords": [
+				"cloudflare-workers",
+				"typescript"
+		],
 		"author": "PayFunc",
 		"license": "MIT",
 		"repository": "https://github.com/payfunc/worker-typescript-template",
@@ -11,8 +14,7 @@
 		},
 		"homepage": "https://github.com/payfunc/worker-typescript-template",
 		"private": false,
-		"main": "dist/index.js",
-		"typings": "dist/index.d.ts",
+		"main": "dist/webpack.production.js",
 		"git": {
 				"tagName": "v${version}"
 		},
